@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<airlines>
+    <airline id = "1">
+        <nameAirline>MilkSky</nameAirline>
+    </airline>
+
+    <airline id = "2">
+        <nameAirline>Ukraine</nameAirline>
+    </airline>
+    </airlines>

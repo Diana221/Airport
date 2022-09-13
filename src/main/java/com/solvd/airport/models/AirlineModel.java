@@ -7,10 +7,6 @@ private String nameAirline;
     public AirlineModel() {
     }
 
-    public AirlineModel(int idAirline, String nameAirline) {
-        this.idAirline = idAirline;
-        this.nameAirline = nameAirline;
-    }
     public AirlineModel( String nameAirline) {
         this.nameAirline = nameAirline;
     }

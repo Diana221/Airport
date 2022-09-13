@@ -7,8 +7,7 @@ public class ArrivalModel {
     public ArrivalModel() {
     }
 
-    public ArrivalModel(int idArrival, AirportModel idAirportA) {
-        this.idArrival = idArrival;
+    public ArrivalModel( AirportModel idAirportA) {
         this.idAirportA = idAirportA;
     }
 

@@ -8,9 +8,13 @@ public class LocationModel {
     public LocationModel() {
     }
 
-    public LocationModel(int idLocation, String country, String city) {
-        this.idLocation = idLocation;
+    public LocationModel( String country, String city) {
         this.country = country;
+        this.city = city;
+    }
+
+    public LocationModel(int idLocation, String city) {
+        this.idLocation = idLocation;
         this.city = city;
     }
 

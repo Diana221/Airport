@@ -1,4 +1,8 @@
 package com.solvd.airport.dao;
 
-public interface ITicketDAO {
+
+
+
+public interface ITicketDAO{
+
 }
