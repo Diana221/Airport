@@ -13,9 +13,7 @@ import java.sql.SQLException;
 
 public class AirlineDAO implements IAirlineDAO {
 
-
-    private static final Logger logger = LogManager.getLogger(AirlineDAO.class.getName());
-
+    private static final Logger LOGGER = LogManager.getLogger(AirlineDAO.class.getName());
 
     public AirlineModel getAirlineById(int id) {
 
@@ -42,7 +40,7 @@ public class AirlineDAO implements IAirlineDAO {
              PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT)) {
             preparedStatement.setString(1, airlineModel.getNameAirline());
             int row = preparedStatement.executeUpdate();
-            logger.info(row + " airline was added. Name: " + airlineModel.getNameAirline());
+            LOGGER.info(row + " airline was added. Name: " + airlineModel.getNameAirline());
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
         } catch (Exception e) {
@@ -59,7 +57,7 @@ public class AirlineDAO implements IAirlineDAO {
             preparedStatement.setString(1, airlineModel.getNameAirline());
             preparedStatement.setInt(2, airlineModel.getIdAirline());
             int row = preparedStatement.executeUpdate();
-            logger.info(row + " airline was changed. New name: " + airlineModel.getNameAirline());
+            LOGGER.info(row + " airline was changed. New name: " + airlineModel.getNameAirline());
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
         } catch (Exception e) {
@@ -75,7 +73,7 @@ public class AirlineDAO implements IAirlineDAO {
              PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE)) {
             preparedStatement.setInt(1, id);
             int row = preparedStatement.executeUpdate();
-            logger.info(row + " airline was deleted. ID: " + id);
+            LOGGER.info(row + " airline was deleted. ID: " + id);
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
         } catch (Exception e) {

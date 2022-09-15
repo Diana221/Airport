@@ -3,13 +3,19 @@ package com.solvd.airport.models;
 public class ScheduleFlightModel {
     private int idSchedule;
     private double duration;
-    private DepartureModel idDeparture;
-    private ArrivalModel idArrival;
+    private int idDeparture;
+    private int idArrival;
 
     public ScheduleFlightModel() {
     }
 
-    public ScheduleFlightModel(int idSchedule, double duration, DepartureModel idDeparture, ArrivalModel idArrival) {
+    public ScheduleFlightModel(double duration, int idDeparture, int idArrival) {
+        this.duration = duration;
+        this.idDeparture = idDeparture;
+        this.idArrival = idArrival;
+    }
+
+    public ScheduleFlightModel(int idSchedule, double duration, int idDeparture, int idArrival) {
         this.idSchedule = idSchedule;
         this.duration = duration;
         this.idDeparture = idDeparture;
@@ -32,19 +38,19 @@ public class ScheduleFlightModel {
         this.duration = duration;
     }
 
-    public DepartureModel getIdDeparture() {
+    public int getIdDeparture() {
         return idDeparture;
     }
 
-    public void setIdDeparture(DepartureModel idDeparture) {
+    public void setIdDeparture(int idDeparture) {
         this.idDeparture = idDeparture;
     }
 
-    public ArrivalModel getIdArrival() {
+    public int getIdArrival() {
         return idArrival;
     }
 
-    public void setIdArrival(ArrivalModel idArrival) {
+    public void setIdArrival(int idArrival) {
         this.idArrival = idArrival;
     }
 

@@ -2,18 +2,26 @@ package com.solvd.airport.models;
 
 public class PassengersModel {
     private int idPassenger;
-    private String Pname;
+    private String pName;
     private String surname;
     private String phoneNumber;
     private String email;
-    private FlightModel idFlight;
+    private int idFlight;
 
     public PassengersModel() {
     }
 
-    public PassengersModel(int idPassenger, String pname, String surname, String phoneNumber, String email, FlightModel idFlight) {
+    public PassengersModel(int idPassenger, String pName, String surname, String phoneNumber, String email, int idFlight) {
         this.idPassenger = idPassenger;
-        Pname = pname;
+        this.pName = pName;
+        this.surname = surname;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.idFlight = idFlight;
+    }
+
+    public PassengersModel(String pName, String surname, String phoneNumber, String email, int idFlight) {
+        this.pName = pName;
         this.surname = surname;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -29,11 +37,11 @@ public class PassengersModel {
     }
 
     public String getPname() {
-        return Pname;
+        return pName;
     }
 
-    public void setPname(String pname) {
-        Pname = pname;
+    public void setPname(String pName) {
+        pName = pName;
     }
 
     public String getSurname() {
@@ -60,11 +68,11 @@ public class PassengersModel {
         this.email = email;
     }
 
-    public FlightModel getIdFlight() {
+    public int getIdFlight() {
         return idFlight;
     }
 
-    public void setIdFlight(FlightModel idFlight) {
+    public void setIdFlight(int idFlight) {
         this.idFlight = idFlight;
     }
 

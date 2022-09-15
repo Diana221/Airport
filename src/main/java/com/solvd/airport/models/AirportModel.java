@@ -3,15 +3,23 @@ package com.solvd.airport.models;
 public class AirportModel {
     private int idAirport;
     private String airportName;
-    private LocationModel idLocation;
-    private GateModel idGate;
-    private TerminalModel idTerminal;
+    private int idLocation;
+    private int idGate;
+    private int idTerminal;
 
     public AirportModel() {
     }
 
-    public AirportModel(int idAirport, String airportName, LocationModel idLocation, GateModel idGate, TerminalModel idTerminal) {
+    public AirportModel(int idAirport, String airportName, int idLocation, int idGate, int idTerminal) {
         this.idAirport = idAirport;
+        this.airportName = airportName;
+        this.idLocation = idLocation;
+        this.idGate = idGate;
+        this.idTerminal = idTerminal;
+    }
+
+
+    public AirportModel(String airportName, int idLocation, int idGate, int idTerminal) {
         this.airportName = airportName;
         this.idLocation = idLocation;
         this.idGate = idGate;
@@ -34,27 +42,27 @@ public class AirportModel {
         this.airportName = airportName;
     }
 
-    public LocationModel getIdLocation() {
+    public int getIdLocation() {
         return idLocation;
     }
 
-    public void setIdLocation(LocationModel idLocation) {
+    public void setIdLocation(int idLocation) {
         this.idLocation = idLocation;
     }
 
-    public GateModel getIdGate() {
+    public int getIdGate() {
         return idGate;
     }
 
-    public void setIdGate(GateModel idGate) {
+    public void setIdGate(int idGate) {
         this.idGate = idGate;
     }
 
-    public TerminalModel getIdTerminal() {
+    public int getIdTerminal() {
         return idTerminal;
     }
 
-    public void setIdTerminal(TerminalModel idTerminal) {
+    public void setIdTerminal(int idTerminal) {
         this.idTerminal = idTerminal;
     }
 

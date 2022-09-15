@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class LocationDAO implements ILocationDAO {
 
 
-    private static final Logger logger = LogManager.getLogger(LocationDAO.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(LocationDAO.class.getName());
 
 
     public LocationModel getLocationById(int id) {
@@ -46,7 +46,7 @@ public class LocationDAO implements ILocationDAO {
             preparedStatement.setString(1, locationModel.getCountry());
             preparedStatement.setString(2, locationModel.getCity());
             int row = preparedStatement.executeUpdate();
-            logger.info(row + " location was added. Country: " +
+            LOGGER.info(row + " location was added. Country: " +
                     locationModel.getCountry() + "(" + locationModel.getCity() + ")");
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
@@ -64,7 +64,7 @@ public class LocationDAO implements ILocationDAO {
             preparedStatement.setString(1, locationModel.getCity());
             preparedStatement.setInt(2, locationModel.getIdLocation());
             int row = preparedStatement.executeUpdate();
-            logger.info(row + " location was changed. New city: " + locationModel.getCity());
+            LOGGER.info(row + " location was changed. New city: " + locationModel.getCity());
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
         } catch (Exception e) {
@@ -80,7 +80,7 @@ public class LocationDAO implements ILocationDAO {
              PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE)) {
             preparedStatement.setInt(1, id);
             int row = preparedStatement.executeUpdate();
-            logger.info(row + " location was deleted. ID: " + id);
+            LOGGER.info(row + " location was deleted. ID: " + id);
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
         } catch (Exception e) {

@@ -12,6 +12,9 @@ public class GateModel {
         this.gateNumber = gateNumber;
     }
 
+    public GateModel( int gateNumber) {
+        this.gateNumber = gateNumber;
+    }
     public int getIdGate() {
         return idGate;
     }

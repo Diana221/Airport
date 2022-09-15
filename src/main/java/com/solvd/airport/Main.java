@@ -3,10 +3,15 @@ package com.solvd.airport;
 
 import com.solvd.airport.Parser.DOMPar;
 import com.solvd.airport.dao.IAirlineDAO;
+import com.solvd.airport.dao.IArrivalDAO;
 import com.solvd.airport.dao.ILocationDAO;
+import com.solvd.airport.dao.ITerminalDAO;
 import com.solvd.airport.dao.jdbc.mysql.AirlineDAO;
+import com.solvd.airport.dao.jdbc.mysql.ArrivalDAO;
 import com.solvd.airport.dao.jdbc.mysql.LocationDAO;
+import com.solvd.airport.dao.jdbc.mysql.TerminalDAO;
 import com.solvd.airport.models.AirlineModel;
+import com.solvd.airport.models.ArrivalModel;
 import com.solvd.airport.models.LocationModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,60 +31,59 @@ import java.io.IOException;
 
 public class Main {
 
-    private static final Logger logger = LogManager.getLogger(Main.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(Main.class.getName());
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
 
+
+
+        //// XML DOM PARSER
+        DOMPar.addAirlines(); // airline.xml
+        DOMPar.addLocations(); // location.xml
+
+
+
+
+
                                                   ////AIRLINE
         ////CREATE
-//        IAirlineDAO iAirlineCreate = new AirlineDAO();
-//        iAirlineCreate.createAirline(new AirlineModel("Sky"));
-
-
-       ////READ
-//        IAirlineDAO iAirlineGet = new AirlineDAO();
-//       logger.info(iAirlineGet.getAirlineById(1));
-
-
-        ////UPDATE
-//        IAirlineDAO iAirlineUpdate = new AirlineDAO();
-//        iAirlineUpdate.updateAirline(new AirlineModel(6,"Big Sky"));
+//        IAirlineDAO iAirline = new AirlineDAO();
+//        iAirline.createAirline(new AirlineModel("Sky"));
 //
-
-        ////DELETE
-//        IAirlineDAO iAirlineDelete = new AirlineDAO();
-//        iAirlineDelete.deleteAirline(8);
-
+//       ////READ
+//        LOGGER.info(iAirline.getAirlineById(1));
+//
+//        ////UPDATE
+//       iAirline.updateAirline(new AirlineModel(6,"Big Sky"));
+//
+//        ////DELETE
+//        iAirline.deleteAirline(8);
 
 
 
 
                                                     ////LOCATION
         ////CREATE
-//        ILocationDAO iLocationCreate = new LocationDAO();
-//        iLocationCreate.createLocation(new LocationModel("Spain", "Barcelona"));
-
+//        ILocationDAO iLocation = new LocationDAO();
+//        iLocation.createLocation(new LocationModel("Spain", "Barcelona"));
 
         ////READ
-//        ILocationDAO iLocationGet = new LocationDAO();
-//       logger.info(iLocationGet.getLocationById(2));
-
+//       logger.info(iLocation.getLocationById(2));
 
        ////UPDATE
-//        ILocationDAO iLocationUpdate = new LocationDAO();
-//        iLocationUpdate.updateLocation(new LocationModel(4, "Antalya"));
-
+//        iLocation.updateLocation(new LocationModel(4, "Antalya"));
 
         ////DELETE
-//        ILocationDAO iLocationDelete = new LocationDAO();
-//        iLocationDelete.deleteLocation(4);
+//        iLocation.deleteLocation(4);
 
 
 
 
-        //// XML DOM PARSER
-//        DOMPar.addAirlines(); // airline.xml
-//        DOMPar.addLocations(); // location.xml
+
+
+
+
+
 
     }
 }

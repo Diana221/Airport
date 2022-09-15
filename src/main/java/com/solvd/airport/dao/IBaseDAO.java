@@ -1,6 +1,6 @@
 package com.solvd.airport.dao;
 
-public interface ICrudDAO<T> {
+public interface IBaseDAO<T> {
 
     T  getById(int id);
     void create(T model);

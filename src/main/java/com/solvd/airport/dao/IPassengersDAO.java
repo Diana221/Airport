@@ -1,7 +1,10 @@
 package com.solvd.airport.dao;
 
 
-public interface IPassengersDAO {
+import com.solvd.airport.dao.jdbc.mysql.PassengersDAO;
+import com.solvd.airport.models.PassengersModel;
+
+public interface IPassengersDAO extends IBaseDAO<PassengersModel>{
 
 
 }

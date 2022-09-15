@@ -2,6 +2,8 @@ package com.solvd.airport.dao;
 
 
 
-public interface IAirportDAO {
+import com.solvd.airport.models.AirportModel;
+
+public interface IAirportDAO extends IBaseDAO<AirportModel>{
 
 }

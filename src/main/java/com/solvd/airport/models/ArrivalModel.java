@@ -2,12 +2,17 @@ package com.solvd.airport.models;
 
 public class ArrivalModel {
     private int idArrival;
-    private AirportModel idAirportA;
+    private int idAirportA;
 
     public ArrivalModel() {
     }
 
-    public ArrivalModel( AirportModel idAirportA) {
+    public ArrivalModel( int idAirportA) {
+        this.idAirportA = idAirportA;
+    }
+
+    public ArrivalModel(int idArrival, int idAirportA) {
+        this.idArrival = idArrival;
         this.idAirportA = idAirportA;
     }
 
@@ -19,11 +24,11 @@ public class ArrivalModel {
         this.idArrival = idArrival;
     }
 
-    public AirportModel getIdAirportA() {
+    public int getIdAirportA() {
         return idAirportA;
     }
 
-    public void setIdAirportA(AirportModel idAirportA) {
+    public void setIdAirportA(int idAirportA) {
         this.idAirportA = idAirportA;
     }
 

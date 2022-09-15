@@ -2,19 +2,26 @@ package com.solvd.airport.models;
 
 public class MissingBaggagesModel {
     private int idMissingBaggage;
-    private BaggagesModel idBaggage;
+    private int idBaggage;
     private String statusB;
     private String descriptionB;
 
     public MissingBaggagesModel() {
     }
 
-    public MissingBaggagesModel(int idMissingBaggage, BaggagesModel idBaggage, String statusB, String descriptionB) {
+    public MissingBaggagesModel(int idMissingBaggage, int idBaggage, String statusB, String descriptionB) {
         this.idMissingBaggage = idMissingBaggage;
         this.idBaggage = idBaggage;
         this.statusB = statusB;
         this.descriptionB = descriptionB;
     }
+
+    public MissingBaggagesModel(int idBaggage, String statusB, String descriptionB) {
+        this.idBaggage = idBaggage;
+        this.statusB = statusB;
+        this.descriptionB = descriptionB;
+    }
+
 
     public int getIdMissingBaggage() {
         return idMissingBaggage;
@@ -24,11 +31,11 @@ public class MissingBaggagesModel {
         this.idMissingBaggage = idMissingBaggage;
     }
 
-    public BaggagesModel getIdBaggage() {
+    public int getIdBaggage() {
         return idBaggage;
     }
 
-    public void setIdBaggage(BaggagesModel idBaggage) {
+    public void setIdBaggage(int idBaggage) {
         this.idBaggage = idBaggage;
     }
 

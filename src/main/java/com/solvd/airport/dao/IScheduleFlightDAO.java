@@ -1,7 +1,9 @@
 package com.solvd.airport.dao;
 
 
-public interface IScheduleFlightDAO {
+import com.solvd.airport.models.ScheduleFlightModel;
+
+public interface IScheduleFlightDAO extends IBaseDAO<ScheduleFlightModel>{
 
 
 }

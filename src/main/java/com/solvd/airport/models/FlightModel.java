@@ -2,14 +2,19 @@ package com.solvd.airport.models;
 
 public class FlightModel {
     private int idFlight;
-    private AirlineModel idAirlineF;
-    private ScheduleFlightModel idSchedule;
+    private int idAirlineF;
+    private int idSchedule;
 
     public FlightModel() {
     }
 
-    public FlightModel(int idFlight, AirlineModel idAirlineF, ScheduleFlightModel idSchedule) {
+    public FlightModel(int idFlight, int idAirlineF, int idSchedule) {
         this.idFlight = idFlight;
+        this.idAirlineF = idAirlineF;
+        this.idSchedule = idSchedule;
+    }
+
+    public FlightModel(int idAirlineF, int idSchedule) {
         this.idAirlineF = idAirlineF;
         this.idSchedule = idSchedule;
     }
@@ -22,19 +27,19 @@ public class FlightModel {
         this.idFlight = idFlight;
     }
 
-    public AirlineModel getIdAirlineF() {
+    public int getIdAirlineF() {
         return idAirlineF;
     }
 
-    public void setIdAirlineF(AirlineModel idAirlineF) {
+    public void setIdAirlineF(int idAirlineF) {
         this.idAirlineF = idAirlineF;
     }
 
-    public ScheduleFlightModel getIdSchedule() {
+    public int getIdSchedule() {
         return idSchedule;
     }
 
-    public void setIdSchedule(ScheduleFlightModel idSchedule) {
+    public void setIdSchedule(int idSchedule) {
         this.idSchedule = idSchedule;
     }
 

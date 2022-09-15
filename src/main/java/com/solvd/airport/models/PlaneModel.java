@@ -2,13 +2,17 @@ package com.solvd.airport.models;
 
 public class PlaneModel {
     private int idPlane;
-    private AirlineModel idAirline;
+    private int idAirline;
 
     public PlaneModel() {
     }
 
-    public PlaneModel(int idPlane, AirlineModel idAirline) {
+    public PlaneModel(int idPlane, int idAirline) {
         this.idPlane = idPlane;
+        this.idAirline = idAirline;
+    }
+
+    public PlaneModel(int idAirline) {
         this.idAirline = idAirline;
     }
 
@@ -20,11 +24,11 @@ public class PlaneModel {
         this.idPlane = idPlane;
     }
 
-    public AirlineModel getIdAirline() {
+    public int getIdAirline() {
         return idAirline;
     }
 
-    public void setIdAirline(AirlineModel idAirline) {
+    public void setIdAirline(int idAirline) {
         this.idAirline = idAirline;
     }
 

@@ -7,6 +7,10 @@ public class TerminalModel {
     public TerminalModel() {
     }
 
+    public TerminalModel(String terminalName) {
+        this.terminalName = terminalName;
+    }
+
     public TerminalModel(int idTerminal, String terminalName) {
         this.idTerminal = idTerminal;
         this.terminalName = terminalName;

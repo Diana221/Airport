@@ -2,7 +2,9 @@ package com.solvd.airport.dao;
 
 
 
-public interface IFlightDAO {
+import com.solvd.airport.models.FlightModel;
+
+public interface IFlightDAO extends IBaseDAO<FlightModel>{
 
 
 }

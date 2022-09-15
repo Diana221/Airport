@@ -2,14 +2,20 @@ package com.solvd.airport.models;
 
 public class TicketModel {
     private int idTicket;
-    private PassengersModel idPassengerT;
+    private int idPassengerT;
     private String seat;
     private int price;
 
     public TicketModel() {
     }
 
-    public TicketModel(int idTicket, PassengersModel idPassengerT, String seat, int price) {
+    public TicketModel(int idPassengerT, String seat, int price) {
+        this.idPassengerT = idPassengerT;
+        this.seat = seat;
+        this.price = price;
+    }
+
+    public TicketModel(int idTicket, int idPassengerT, String seat, int price) {
         this.idTicket = idTicket;
         this.idPassengerT = idPassengerT;
         this.seat = seat;
@@ -24,11 +30,11 @@ public class TicketModel {
         this.idTicket = idTicket;
     }
 
-    public PassengersModel getIdPassengerT() {
+    public int getIdPassengerT() {
         return idPassengerT;
     }
 
-    public void setIdPassengerT(PassengersModel idPassengerT) {
+    public void setIdPassengerT(int idPassengerT) {
         this.idPassengerT = idPassengerT;
     }
 

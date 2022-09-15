@@ -1,7 +1,9 @@
 package com.solvd.airport.dao;
 
 
-public interface IMissingBaggagesDAO {
+import com.solvd.airport.models.MissingBaggagesModel;
+
+public interface IMissingBaggagesDAO extends IBaseDAO<MissingBaggagesModel>{
 
 
 }

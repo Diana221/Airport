@@ -7,7 +7,12 @@ private String nameAirline;
     public AirlineModel() {
     }
 
-    public AirlineModel( String nameAirline) {
+    public AirlineModel(String nameAirline) {
+        this.nameAirline = nameAirline;
+    }
+
+    public AirlineModel(int idAirline, String nameAirline) {
+        this.idAirline = idAirline;
         this.nameAirline = nameAirline;
     }
 
