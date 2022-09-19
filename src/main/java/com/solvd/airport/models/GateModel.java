@@ -1,5 +1,7 @@
 package com.solvd.airport.models;
 
+
+
 public class GateModel {
     private int idGate;
     private int gateNumber;

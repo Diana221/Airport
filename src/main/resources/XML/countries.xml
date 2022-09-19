@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Countries>
+    <CountryWrapper>
+        <Country>
+            <Country>Spain</Country>
+            <City>Madrid</City>
+        </Country>
+        <Country>
+            <Country>USA</Country>
+            <City>New York</City>
+        </Country>
+    </CountryWrapper>
+</Countries>

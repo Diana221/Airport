@@ -79,8 +79,8 @@ public class PassengersModel {
     @Override
     public String toString() {
         return "PassengersModel{" +
-                "IdPassenger=" + getIdPassenger() +
-                ", Pname='" + getPname() + '\'' +
+                "Id Passenger=" + getIdPassenger() +
+                ", name='" + getPname() + '\'' +
                 ", surname='" + getSurname() + '\'' +
                 ", phoneNumber='" +  getPhoneNumber()+ '\'' +
                 ", email='" +  getEmail() + '\'' +
