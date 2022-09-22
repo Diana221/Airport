@@ -1,13 +1,14 @@
-package com.solvd.airport.Parser;
+package com.solvd.airport.Parser.JABX;
 
 
 import com.solvd.airport.Main;
+import com.solvd.airport.Parser.Countries;
+import com.solvd.airport.Parser.Country;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.xml.bind.JAXBException;
 import java.io.File;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 

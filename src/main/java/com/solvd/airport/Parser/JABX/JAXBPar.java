@@ -1,4 +1,4 @@
-package com.solvd.airport.Parser;
+package com.solvd.airport.Parser.JABX;
 
 
 import javax.xml.bind.JAXBContext;
