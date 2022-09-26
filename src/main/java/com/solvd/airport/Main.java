@@ -1,74 +1,71 @@
 package com.solvd.airport;
 
 
-
-import com.solvd.airport.Parser.DOMPar;
-
-import com.solvd.airport.dao.IAirlineDAO;
-import com.solvd.airport.dao.IArrivalDAO;
-import com.solvd.airport.dao.ILocationDAO;
-import com.solvd.airport.dao.ITerminalDAO;
-import com.solvd.airport.dao.jdbc.mysql.AirlineDAO;
-import com.solvd.airport.dao.jdbc.mysql.ArrivalDAO;
-import com.solvd.airport.dao.jdbc.mysql.LocationDAO;
-import com.solvd.airport.dao.jdbc.mysql.TerminalDAO;
 import com.solvd.airport.models.AirlineModel;
-import com.solvd.airport.models.ArrivalModel;
-import com.solvd.airport.models.GateModel;
-import com.solvd.airport.models.LocationModel;
-import com.solvd.airport.services.InfoGeneration;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
-import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
+import java.io.Reader;
 
 
 public class Main {
 
     private static final Logger LOGGER = LogManager.getLogger(Main.class.getName());
 
-    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
+    public static void disableWarning() {
+        System.err.close();
+        System.setErr(System.out);
+    }
+
+    public static void main(String[] args) {
+
+        disableWarning(); //WARNING
+
+        try {
+            Reader reader = Resources.getResourceAsReader("mybatis/MyBatisConfig.xml");
+            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+            SqlSession session = sqlSessionFactory.openSession();
 
 
-        InfoGeneration.Greetings();
+            //AIRLINE
+            //CREATE
+            AirlineModel airlineModelCreate = new AirlineModel("dianasky");
+            session.insert("mybatis.AirlineMapper.createAirline", airlineModelCreate);
+            LOGGER.info("Record inserted successfully");
 
-        ////DOM
-//        DOMPar.addAirlines(); // airline.xml
-//        DOMPar.addLocations(); // location.xml
+
+            //READ
+            AirlineModel airlineModelRead = (AirlineModel) session.selectOne("mybatis.AirlineMapper.getAirlineById", 3);
+            LOGGER.info("Info about airline:");
+            LOGGER.info(airlineModelRead.toString());
 
 
-        ////AIRLINE
-        ////CREATE
-//        IAirlineDAO iAirline = new AirlineDAO();
-//        iAirline.createAirline(new AirlineModel("Sky"));
+            //UPDATE
+            AirlineModel airlineModelUpdate = new AirlineModel(9, "fly");
+            session.update("mybatis.AirlineMapper.updateAirline", airlineModelUpdate);
+            System.out.println("Record updated successfully");
+
+
+            //DELETE
+            session.delete("mybatis.AirlineMapper.deleteAirline", 2);
+            System.out.println("Record deleted successfully");
+
+
+            //TERMINAL
+//            TerminalModel terminalModel = new TerminalModel("T");
+//            session.insert("mybatis.TerminalMapper.create", terminalModel);
+//            LOGGER.info("Record inserted successfully");
 //
-//       ////READ
-//        LOGGER.info(iAirline.getAirlineById(1));
-//
-//        ////UPDATE
-//       iAirline.updateAirline(new AirlineModel(6,"Big Sky"));
-//
-//        ////DELETE
-//        iAirline.deleteAirline(8);
+            session.commit();
+            session.close();
 
-
-        ////LOCATION
-        ////CREATE
-//        ILocationDAO iLocation = new LocationDAO();
-//        iLocation.createLocation(new LocationModel("Spain", "Barcelona"));
-
-        ////READ
-//       logger.info(iLocation.getLocationById(2));
-
-        ////UPDATE
-//        iLocation.updateLocation(new LocationModel(4, "Antalya"));
-
-        ////DELETE
-//        iLocation.deleteLocation(4);
-
+        } catch (Exception ex) {
+            LOGGER.info(ex.getMessage());
+        }
 
     }
 

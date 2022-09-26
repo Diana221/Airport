@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.TerminalMapper">
+
+    <select id="getById" resultType="com.solvd.airport.models.TerminalModel">
+        select idTerminal,terminalName from terminal where idTerminal = #{idTerminal}
+    </select>
+
+    <delete id = "delete" parameterType = "int">
+        DELETE from terminal WHERE idTerminal = #{idTerminal};
+    </delete>
+
+    <update id = "update" parameterType = "com.solvd.airport.models.TerminalModel">
+        UPDATE terminal SET terminalName = #{terminalName} WHERE idTerminal = #{idTerminal};
+    </update>
+
+    <insert id = "create" parameterType = "com.solvd.airport.models.TerminalModel">
+        INSERT INTO terminal (idTerminal, terminalName ) VALUES (#{idTerminal}, #{terminalName});
+    </insert>
+
+        </mapper>

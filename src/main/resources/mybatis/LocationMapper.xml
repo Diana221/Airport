@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.LocationMapper">
+
+    <select id="getLocationById" resultType="com.solvd.airport.models.LocationModel">
+        select idLocation,country,city from location where idLocation = #{idLocation}
+    </select>
+
+    <select id="getAll" resultType="com.solvd.airport.models.LocationModel">
+        select * from location;
+    </select>
+
+
+    <delete id = "deleteLocation" parameterType = "int">
+        DELETE from location WHERE idAirline = #{idAirline};
+    </delete>
+
+    <update id = "updateLocation" parameterType = "com.solvd.airport.models.LocationModel">
+        UPDATE location SET country = #{country},city = #{city}  WHERE idLocation = #{idLocation};
+    </update>
+
+    <insert id = "createLocation" parameterType = "com.solvd.airport.models.LocationModel">
+        INSERT INTO location (idLocation, country, city ) VALUES (#{idLocation}, #{country}, #{city});
+    </insert>
+
+        </mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.AirlineMapper">
+
+    <select id="getAirlineById" resultType="com.solvd.airport.models.AirlineModel">
+        select idAirline,nameAirline from airline where idAirline = #{idAirline}
+    </select>
+
+    <delete id = "deleteAirline" parameterType = "int">
+        DELETE from airline WHERE idAirline = #{idAirline};
+    </delete>
+
+    <update id = "updateAirline" parameterType = "com.solvd.airport.models.AirlineModel">
+        UPDATE airline SET nameAirline = #{nameAirline} WHERE idAirline = #{idAirline};
+    </update>
+
+    <insert id = "createAirline" parameterType = "com.solvd.airport.models.AirlineModel">
+        INSERT INTO airline (idAirline, nameAirline ) VALUES (#{idAirline}, #{nameAirline});
+    </insert>
+
+        </mapper>

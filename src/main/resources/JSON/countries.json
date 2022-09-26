@@ -1,1 +1,9 @@
-{"countries":[{"country":"Ukraine","city":"Kharkiv"},{"country":"Spain","city":"Madrid"}]}
+{
+  "countries" : [ {
+    "country" : "Ukraine",
+    "city" : "Kharkiv"
+  }, {
+    "country" : "Spain",
+    "city" : "Madrid"
+  } ]
+}

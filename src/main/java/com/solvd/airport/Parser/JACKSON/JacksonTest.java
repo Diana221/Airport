@@ -8,6 +8,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class JacksonTest {
@@ -21,11 +22,10 @@ public class JacksonTest {
 
         try {
             LOGGER.info("\n Successfully written to [countries]!");
-            mapper.writeValue(new File("src/main/resources/JSON/countries.json"), country);
-
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("src/main/resources/JSON/countries.json"), country);
             LOGGER.info("\n Read from [countries]: ");
-            String jsonInString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(country);
-            System.out.println(jsonInString);
+            Countries countries = mapper.readValue(new File("src/main/resources/JSON/countries.json"), Countries.class);
+            LOGGER.info(countries);
 
         } catch (IOException e) {
             e.printStackTrace();
