@@ -3,7 +3,6 @@ package com.solvd.airport.dao.jdbc.mysql;
 import com.solvd.airport.configuration.SQLConnection;
 import com.solvd.airport.dao.IAirlineDAO;
 import com.solvd.airport.models.AirlineModel;
-import com.solvd.airport.models.LocationModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,13 +10,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 public class AirlineDAO implements IAirlineDAO {
 
     private static final Logger LOGGER = LogManager.getLogger(AirlineDAO.class.getName());
 
-    public AirlineModel getAirlineById(int id) {
+    public void getAirlineById(int id) {
 
         AirlineModel airlineModel = new AirlineModel();
         airlineModel.setIdAirline(id);
@@ -31,7 +29,7 @@ public class AirlineDAO implements IAirlineDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return airlineModel;
+         LOGGER.info(airlineModel);
     }
 
 

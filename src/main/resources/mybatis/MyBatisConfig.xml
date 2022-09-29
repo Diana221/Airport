@@ -3,23 +3,27 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
+    <properties resource="db.properties">
+    </properties>
+    <settings>
+        <setting name="logImpl" value="LOG4J2"/>
+    </settings>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/airport?autoReconnect=true&amp;useSSL=false"/>
-                <property name="username" value="root"/>
-                <property name="password" value="27942001Diana"/>
+                <property name="driver" value="${db.driver}"/>
+                <property name="url" value="${db.url}"/>
+                <property name="username" value="${db.username}"/>
+                <property name="password" value="${db.password}"/>
             </dataSource>
         </environment>
     </environments>
     <mappers>
-        <mapper resource ="mybatis/AirlineMapper.xml"/>
-        <mapper resource ="mybatis/GateMapper.xml"/>
-        <mapper resource ="mybatis/LocationMapper.xml"/>
-        <mapper resource ="mybatis/PlaneMapper.xml"/>
-        <mapper resource ="mybatis/TerminalMapper.xml"/>
+        <mapper resource ="mybatis/mappers/AirlineMapper.xml"/>
+        <mapper resource ="mybatis/mappers/GateMapper.xml"/>
+        <mapper resource ="mybatis/mappers/LocationMapper.xml"/>
+        <mapper resource ="mybatis/mappers/PlaneMapper.xml"/>
+        <mapper resource ="mybatis/mappers/TerminalMapper.xml"/>
     </mappers>
 </configuration>

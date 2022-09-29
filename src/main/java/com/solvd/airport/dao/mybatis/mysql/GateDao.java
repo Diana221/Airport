@@ -1,16 +1,13 @@
 package com.solvd.airport.dao.mybatis.mysql;
 
-import com.solvd.airport.configuration.SQLConnection;
+import com.solvd.airport.configuration.MyBatisConnection;
 import com.solvd.airport.dao.IGateDAO;
 import com.solvd.airport.dao.jdbc.mysql.AirlineDAO;
+import com.solvd.airport.models.AirlineModel;
 import com.solvd.airport.models.GateModel;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class GateDao implements IGateDAO {
 
@@ -19,21 +16,38 @@ public class GateDao implements IGateDAO {
 
     @Override
     public GateModel getById(int id) {
-        return null;
+        SqlSession session = MyBatisConnection.getSqlSessionFactory().openSession();
+        GateModel gateModelRead = session.selectOne("mybatis.mappers.GateMapper.getById", id);
+        LOGGER.info("Info about gate: " );
+        session.commit();
+        session.close();
+        return gateModelRead;
     }
 
     @Override
     public void create(GateModel model) {
-
+        SqlSession session = MyBatisConnection.getSqlSessionFactory().openSession();
+        session.insert("mybatis.mappers.GateMapper.createGate", model);
+        LOGGER.info("Record inserted successfully! Number: " + model.getGateNumber());
+        session.commit();
+        session.close();
     }
 
     @Override
     public void update(GateModel model) {
-
+        SqlSession session = MyBatisConnection.getSqlSessionFactory().openSession();
+        session.update("mybatis.mappers.GateMapper.updateGate", model);
+        LOGGER.info("Record updated successfully! Number: " + model.getGateNumber());
+        session.commit();
+        session.close();
     }
 
     @Override
     public void delete(int id) {
-
+        SqlSession session = MyBatisConnection.getSqlSessionFactory().openSession();
+        session.delete("mybatis.mappers.GateMapper.deleteGate", id);
+        LOGGER.info("Record deleted successfully! ID: " + id);
+        session.commit();
+        session.close();
     }
 }

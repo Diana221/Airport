@@ -1,8 +1,11 @@
 package com.solvd.airport.dao.mybatis.mysql;
 
+import com.solvd.airport.configuration.MyBatisConnection;
 import com.solvd.airport.configuration.SQLConnection;
 import com.solvd.airport.dao.ILocationDAO;
+import com.solvd.airport.models.GateModel;
 import com.solvd.airport.models.LocationModel;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,21 +22,38 @@ public class LocationDao implements ILocationDAO {
 
     @Override
     public LocationModel getLocationById(int id) {
-        return null;
+        SqlSession session = MyBatisConnection.getSqlSessionFactory().openSession();
+        LocationModel locationModelRead = session.selectOne("mybatis.mappers.LocationMapper.getLocationById", id);
+        LOGGER.info("Info about location: " );
+        session.commit();
+        session.close();
+        return locationModelRead;
     }
 
     @Override
     public void createLocation(LocationModel locationModel) {
-
+        SqlSession session = MyBatisConnection.getSqlSessionFactory().openSession();
+        session.insert("mybatis.mappers.LocationMapper.createLocation", locationModel);
+        LOGGER.info("Record inserted successfully! Country: " + locationModel.getCountry());
+        session.commit();
+        session.close();
     }
 
     @Override
     public void updateLocation(LocationModel locationModel) {
-
+        SqlSession session = MyBatisConnection.getSqlSessionFactory().openSession();
+        session.update("mybatis.mappers.LocationMapper.updateLocation", locationModel);
+        LOGGER.info("Record updated successfully! Country: " + locationModel.getCountry());
+        session.commit();
+        session.close();
     }
 
     @Override
     public void deleteLocation(int id) {
-
+        SqlSession session = MyBatisConnection.getSqlSessionFactory().openSession();
+        session.delete("mybatis.mappers.LocationMapper.deleteLocation", id);
+        LOGGER.info("Record deleted successfully! ID: " + id);
+        session.commit();
+        session.close();
     }
 }

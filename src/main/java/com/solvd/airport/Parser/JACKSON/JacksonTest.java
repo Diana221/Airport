@@ -1,10 +1,10 @@
 package com.solvd.airport.Parser.JACKSON;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.solvd.airport.Parser.Countries;
 import com.solvd.airport.Parser.Country;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
