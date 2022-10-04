@@ -86,4 +86,9 @@ public class MissingBaggagesDAO implements IMissingBaggagesDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void getAll() {
+
+    }
 }

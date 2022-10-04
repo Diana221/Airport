@@ -1,4 +1,4 @@
-package com.solvd.airport.Parser;
+package com.solvd.airport.Parser.DOM;
 
 
 import javax.xml.bind.annotation.XmlElement;

@@ -82,4 +82,9 @@ public class DepartureDAO implements IDepartureDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void getAll() {
+
+    }
 }

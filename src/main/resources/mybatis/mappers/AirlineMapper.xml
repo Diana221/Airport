@@ -7,6 +7,10 @@
         select idAirline,nameAirline from airline where idAirline = #{idAirline}
     </select>
 
+    <select id="getAll" resultType="com.solvd.airport.models.AirlineModel">
+        select * from airline;
+    </select>
+
     <delete id = "deleteAirline" parameterType = "int">
         DELETE from airline WHERE idAirline = #{idAirline};
     </delete>

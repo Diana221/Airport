@@ -2,7 +2,6 @@ package com.solvd.airport.dao.jdbc.mysql;
 
 import com.solvd.airport.configuration.SQLConnection;
 import com.solvd.airport.dao.IPassengersDAO;
-import com.solvd.airport.models.AirlineModel;
 import com.solvd.airport.models.PassengersModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -38,10 +37,30 @@ public class PassengersDAO implements IPassengersDAO {
         return passengersModel;
     }
 
+    public void getByName(String name, String surname) {
+
+        PassengersModel passengersModel = new PassengersModel();
+        passengersModel.setPname(name);
+
+        String SQL_SELECT = "SELECT * FROM passengers WHERE Pname = " + name ;
+        try (Connection conn = SQLConnection.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            passengersModel.setIdPassenger(resultSet.getInt("idPassenger"));
+            passengersModel.setSurname(resultSet.getString("surname"));
+            passengersModel.setEmail(resultSet.getString("email"));
+            passengersModel.setPhoneNumber(resultSet.getString("phoneNumber"));
+            passengersModel.setIdFlight(resultSet.getInt("idFlight"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void create(PassengersModel model) {
 
-        String SQL_INSERT = "INSERT INTO passengers VALUES (default, ?, ?, ?, ?, ?)";
+        String SQL_INSERT = "INSERT INTO passengers(Pname, surname, phoneNumber, email, idFlight) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = SQLConnection.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT)) {
             preparedStatement.setString(1, model.getPname());
@@ -57,7 +76,9 @@ public class PassengersDAO implements IPassengersDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
+
 
     @Override
     public void update(PassengersModel model) {
@@ -90,5 +111,10 @@ public class PassengersDAO implements IPassengersDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void getAll() {
+
     }
 }

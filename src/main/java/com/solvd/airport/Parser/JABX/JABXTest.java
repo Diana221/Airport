@@ -1,9 +1,9 @@
 package com.solvd.airport.Parser.JABX;
 
 
-import com.solvd.airport.Main;
-import com.solvd.airport.Parser.Countries;
-import com.solvd.airport.Parser.Country;
+import com.solvd.airport.services.User.User;
+import com.solvd.airport.Parser.DOM.Countries;
+import com.solvd.airport.Parser.DOM.Country;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class JABXTest {
 
-    private static final Logger LOGGER = LogManager.getLogger(Main.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(User.class.getName());
 
     private static final String XML_PATH_COUNTRY = "src/main/resources/XML/country.xml";
     private static final String XML_PATH_COUNTRIES = "src/main/resources/XML/countries.xml";

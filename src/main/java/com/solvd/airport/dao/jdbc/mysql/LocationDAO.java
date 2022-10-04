@@ -12,12 +12,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
 public class LocationDAO implements ILocationDAO {
 
 
     private static final Logger LOGGER = LogManager.getLogger(LocationDAO.class.getName());
-
+    
 
     public LocationModel getLocationById(int id) {
 
@@ -86,6 +88,30 @@ public class LocationDAO implements ILocationDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void getAllLocation() {
+        LocationModel locationModel = new LocationModel();
+        List<LocationModel> locationList = new LinkedList<>();
+
+        String SQL_SELECT = "SELECT * FROM location";
+        try (Connection conn = SQLConnection.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+            locationModel.setIdLocation(resultSet.getInt("idLocation"));
+            locationModel.setCountry(resultSet.getString("country"));
+            locationModel.setCity(resultSet.getString("city"));
+            assert false;
+            locationList.add(locationModel);
+            LOGGER.info(locationModel);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 

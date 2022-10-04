@@ -87,4 +87,9 @@ public class AirportDAO implements IAirportDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void getAll() {
+
+    }
 }

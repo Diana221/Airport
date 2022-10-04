@@ -6,4 +6,5 @@ public interface IBaseDAO<T> {
     void create(T model);
     void update(T model);
     void delete(int id);
+    void getAll();
 }

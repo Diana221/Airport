@@ -82,4 +82,9 @@ public class PlaneDAO implements IPlaneDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void getAll() {
+
+    }
 }

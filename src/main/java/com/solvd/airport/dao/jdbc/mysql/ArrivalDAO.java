@@ -83,4 +83,9 @@ public class ArrivalDAO implements IArrivalDAO{
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void getAll() {
+
+    }
 }

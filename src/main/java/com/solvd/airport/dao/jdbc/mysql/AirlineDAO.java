@@ -81,4 +81,11 @@ public class AirlineDAO implements IAirlineDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void getAll() {
+
+    }
+
+
 }

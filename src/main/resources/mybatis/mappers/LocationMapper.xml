@@ -7,13 +7,13 @@
         select idLocation,country,city from location where idLocation = #{idLocation}
     </select>
 
+
     <select id="getAll" resultType="com.solvd.airport.models.LocationModel">
         select * from location;
     </select>
 
-
     <delete id = "deleteLocation" parameterType = "int">
-        DELETE from location WHERE idAirline = #{idAirline};
+        DELETE from location WHERE idLocation = #{idLocation};
     </delete>
 
     <update id = "updateLocation" parameterType = "com.solvd.airport.models.LocationModel">

@@ -44,8 +44,9 @@ public class TicketDAO implements ITicketDAO {
         try (Connection conn = SQLConnection.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT)) {
             preparedStatement.setInt(1, model.getIdPassengerT());
-            preparedStatement.setInt(2, model.getPrice());
-            preparedStatement.setString(3, model.getSeat());
+            preparedStatement.setString(2, model.getSeat());
+            preparedStatement.setInt(3, model.getPrice());
+
             int row = preparedStatement.executeUpdate();
             LOGGER.info(row + " ticket was added. ID: " + model.getIdTicket());
         } catch (SQLException e) {
@@ -86,5 +87,10 @@ public class TicketDAO implements ITicketDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void getAll() {
+
     }
 }

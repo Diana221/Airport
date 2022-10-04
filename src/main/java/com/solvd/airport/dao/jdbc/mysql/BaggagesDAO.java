@@ -81,4 +81,9 @@ public class BaggagesDAO implements IBaggagesDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void getAll() {
+
+    }
 }

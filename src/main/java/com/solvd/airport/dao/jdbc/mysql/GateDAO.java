@@ -81,4 +81,9 @@ public class GateDAO implements IGateDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void getAll() {
+
+    }
 }

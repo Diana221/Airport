@@ -8,5 +8,6 @@ public interface IAirlineDAO {
     void createAirline(AirlineModel airlineModel);
     void updateAirline(AirlineModel airlineModel);
     void deleteAirline(int id);
+    void getAll();
 
 }

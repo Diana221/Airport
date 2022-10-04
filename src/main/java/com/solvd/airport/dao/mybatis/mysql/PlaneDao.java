@@ -24,7 +24,7 @@ public class PlaneDao implements IPlaneDAO {
     public PlaneModel getById(int id) {
         SqlSession session = MyBatisConnection.getSqlSessionFactory().openSession();
         PlaneModel planeModelRead = session.selectOne("mybatis.mappers.PlaneMapper.getById", id);
-        LOGGER.info("Info about plane: " );
+        LOGGER.info("Info about plane: " + planeModelRead);
         session.commit();
         session.close();
         return planeModelRead;
@@ -33,7 +33,7 @@ public class PlaneDao implements IPlaneDAO {
     @Override
     public void create(PlaneModel model) {
         SqlSession session = MyBatisConnection.getSqlSessionFactory().openSession();
-        session.insert("mybatis.mappers.PlaneMapper.createPlane", model);
+        session.insert("mybatis.mappers.PlaneMapper.create", model);
         LOGGER.info("Record inserted successfully! ID Airline: " + model.getIdAirline());
         session.commit();
         session.close();
@@ -42,7 +42,7 @@ public class PlaneDao implements IPlaneDAO {
     @Override
     public void update(PlaneModel model) {
         SqlSession session = MyBatisConnection.getSqlSessionFactory().openSession();
-        session.update("mybatis.mappers.PlaneMapper.updatePlane", model);
+        session.update("mybatis.mappers.PlaneMapper.update", model);
         LOGGER.info("Record updated successfully! ID Airline: " + model.getIdAirline());
         session.commit();
         session.close();
@@ -51,9 +51,14 @@ public class PlaneDao implements IPlaneDAO {
     @Override
     public void delete(int id) {
         SqlSession session = MyBatisConnection.getSqlSessionFactory().openSession();
-        session.delete("mybatis.mappers.PlaneMapper.deletePlane", id);
+        session.delete("mybatis.mappers.PlaneMapper.delete", id);
         LOGGER.info("Record deleted successfully! ID: " + id);
         session.commit();
         session.close();
+    }
+
+    @Override
+    public void getAll() {
+
     }
 }

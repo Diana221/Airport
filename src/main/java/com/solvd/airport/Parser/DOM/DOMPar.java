@@ -1,4 +1,4 @@
-package com.solvd.airport.Parser;
+package com.solvd.airport.Parser.DOM;
 
 import com.solvd.airport.dao.IAirlineDAO;
 import com.solvd.airport.dao.ILocationDAO;

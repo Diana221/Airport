@@ -1,14 +1,13 @@
 package com.solvd.airport.Parser.JACKSON;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.solvd.airport.Parser.Countries;
-import com.solvd.airport.Parser.Country;
+import com.solvd.airport.Parser.DOM.Countries;
+import com.solvd.airport.Parser.DOM.Country;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class JacksonTest {

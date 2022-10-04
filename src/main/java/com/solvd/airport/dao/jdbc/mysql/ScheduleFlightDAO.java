@@ -86,4 +86,9 @@ public class ScheduleFlightDAO implements IScheduleFlightDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void getAll() {
+
+    }
 }

@@ -9,6 +9,6 @@ public interface ILocationDAO {
     void createLocation(LocationModel locationModel);
     void updateLocation(LocationModel locationModel);
     void deleteLocation(int id);
-
+    void getAllLocation();
 
 }

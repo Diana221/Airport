@@ -85,4 +85,9 @@ public class FlightDAO implements IFlightDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void getAll() {
+
+    }
 }

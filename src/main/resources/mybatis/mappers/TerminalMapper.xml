@@ -7,6 +7,10 @@
         select idTerminal,terminalName from terminal where idTerminal = #{idTerminal}
     </select>
 
+    <select id="getAll" resultType="com.solvd.airport.models.TerminalModel">
+        select * from terminal;
+    </select>
+
     <delete id = "delete" parameterType = "int">
         DELETE from terminal WHERE idTerminal = #{idTerminal};
     </delete>

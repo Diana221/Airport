@@ -7,6 +7,10 @@
         select idGate,gateNumber from gate where idGate = #{idGate}
     </select>
 
+    <select id="getAll" resultType="com.solvd.airport.models.GateModel">
+        select * from gate;
+    </select>
+
     <delete id = "delete" parameterType = "int">
         DELETE from gate WHERE idGate = #{idGate};
     </delete>

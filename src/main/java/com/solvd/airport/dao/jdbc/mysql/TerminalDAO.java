@@ -80,4 +80,9 @@ public class TerminalDAO implements ITerminalDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void getAll() {
+
+    }
 }

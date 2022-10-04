@@ -88,4 +88,9 @@ public class PilotsDAO implements IPilotsDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void getAll() {
+
+    }
 }

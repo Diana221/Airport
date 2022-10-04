@@ -18,6 +18,12 @@ public class LocationModel {
         this.city = city;
     }
 
+    public LocationModel(int id, String country, String city) {
+        this.idLocation = id;
+        this.city = city;
+        this.country = country;
+    }
+
     public int getIdLocation() {
         return idLocation;
     }
